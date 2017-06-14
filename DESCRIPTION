@@ -1,0 +1,9 @@
+Package: FuzzyCleaner 
+Title: Clean dataframes using fuzzy string matching
+Version: 0.1
+Authors@R: person("Christian", "Testa", email = "testa101@gmail.com",
+                  role = c("aut", "cre"))
+Description: This package was designed to help tidy open ended question response data. It uses the agrep function, relying on Levenshtein distances, to find near matches in a column of a data frame in order to help users select data to be bulk-replaced in a data frame.  
+Depends: R (>= 3.1.0)
+License: MIT
+LazyData: true
