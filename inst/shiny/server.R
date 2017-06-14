@@ -32,6 +32,9 @@ shinyServer(function(input, output) {
     if (is.null(values[['colnames']])) {
       values[['colnames']] <- colnames(uploaded_dataframe())
     }
+    if (!is.null(input[['df_file']])) {
+      return(colnames(uploaded_dataframe()))
+    }
     return(values[['colnames']])
   })
   
