@@ -73,4 +73,17 @@ shinyServer(function(input, output) {
     )
   })
   
+  output$downloadData <- downloadHandler(
+    filename = function() { 
+      if (!is.null(input[['df_data']])) {
+        paste(basename(input[['df_data']][['datapath']]), '.csv', sep='')
+      } else 
+        return('output.csv')
+      },
+    content = function(file) {
+      write.csv(values[['df']], file, row.names = FALSE)
+    }
+  )
+  
+  
 })

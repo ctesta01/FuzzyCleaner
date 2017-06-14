@@ -9,7 +9,16 @@ shinyUI(fluidPage(
   
   sidebarLayout(
     sidebarPanel(
-      h4("Upload and Select Data"),
+      # h4(""),
+      HTML("FuzzyCleaner uses <a href='https://stat.ethz.ch/R-manual/R-devel/library/base/html/agrep.html'>fuzzy matching</a> 
+      in R to help users clean and standardize their CSV data. 
+      To fuzzy-search a column, upload a CSV dataset, select a column, and enter a search term
+      and maximum <a href='https://en.wikipedia.org/wiki/Levenshtein_distance'>Levenshtein distance</a>
+      to search with. 
+      Move the cells to be renamed to the right, enter their new value below, and 
+      click update. FuzzyCleaner then updates the dataframe by replacing the selected cells with 
+      the new desired value."),
+      h4(),
       br(),
       fileInput(
         'df_file',
@@ -25,7 +34,9 @@ shinyUI(fluidPage(
       fluidRow(column(7, textInput("rename", "", "")),
                column(1, div(class="form-group shiny-input-container",
                              tags$label(""),
-                             actionButton("Go", "Update"))))
+                             actionButton("Go", "Update")))),
+      br(),
+      downloadButton('downloadData', 'Download Output CSV')
     ),
     mainPanel(uiOutput('custom_selector'))
   )

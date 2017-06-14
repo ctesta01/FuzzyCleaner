@@ -16,7 +16,7 @@ chooserInput <- function(inputId, leftLabel, rightLabel, leftChoices, rightChoic
                  HTML(".chooser-container { display: inline-block; } 
                       .chooser-left-container { width: 45%; }
                       .chooser-right-container { width: 45%; }
-                      select option:nth-of-type(2n) { background: rgb(240,240,240); border-bottom: solid black 1px; }
+                      select option:nth-of-type(2n) { background: rgb(240,240,240); }
                       select { border: 1px lightgray solid }") 
       )
     )),
