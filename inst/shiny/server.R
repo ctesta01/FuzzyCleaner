@@ -68,8 +68,8 @@ shinyServer(function(input, output) {
     input[['selected_column']]
     input[['fuzzy_threshold']]
     input[['df_file']]
-    chooserInput("mychooser", left_label(), "Data Selected for Renaming",
-                 column_data(), c(), size = 30, multiple = TRUE
+    chooserInput("mychooser", left_label(), "Data for Renaming",
+                 column_data(), c(), size = 40, multiple = TRUE
     )
   })
   

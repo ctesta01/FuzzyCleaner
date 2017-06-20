@@ -1,3 +1,5 @@
+requireNamespace('shiny')
+
 chooserInput <- function(inputId, leftLabel, rightLabel, leftChoices, rightChoices,
                          size = 5, multiple = FALSE) {
   
@@ -16,13 +18,17 @@ chooserInput <- function(inputId, leftLabel, rightLabel, leftChoices, rightChoic
                  HTML(".chooser-container { display: inline-block; } 
                       .chooser-left-container { width: 45%; }
                       .chooser-right-container { width: 45%; }
+                      .chooser-center-container {
+                          position: relative;
+                          transform: translateY(-350%);
+                      }
                       select option:nth-of-type(2n) { background: rgb(240,240,240); }
                       select { border: 1px lightgray solid }") 
       )
     )),
     div(id=inputId, class="chooser",
         div(class="chooser-container chooser-left-container",
-            h4(leftLabel),
+            h4(leftLabel, style='text-align: center'),
             tags$select(class="left", style='width: 100%', size=size, multiple=multiple, leftChoices)
         ),
         div(class="chooser-container chooser-center-container",
@@ -31,14 +37,14 @@ chooserInput <- function(inputId, leftLabel, rightLabel, leftChoices, rightChoic
             icon("arrow-circle-o-left", "left-arrow fa-3x")
         ),
         div(class="chooser-container chooser-right-container",
-            h4(rightLabel),
+            h4(rightLabel, style='text-align: center'),
             tags$select(class="right", style='width: 100%', size=size, multiple=multiple, rightChoices)
         )
     )
   )
 }
 
-registerInputHandler("shinyjsexamples.chooser", function(data, ...) {
+shiny::registerInputHandler("shinyjsexamples.chooser", function(data, ...) {
   if (is.null(data))
     NULL
   else
